@@ -14,9 +14,9 @@ function onFormSubmit(event) {
     const formData = new FormData(event.currentTarget);  
     let newObjectData = Object.fromEntries(formData);
      console.log(newObjectData);
-    }
+    
      form.reset();
 
-
+}
 
 
