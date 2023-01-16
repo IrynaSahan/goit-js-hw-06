@@ -5,15 +5,19 @@ form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
     event.preventDefault();
     // console.log('це сабміт форми');
-    const formElem = event.currentTarget.elements;
-
-    if (formElem.email.value.trim() === '' || formElem.password.value.trim() === '') {
+    const {email, password} = event.currentTarget.elements;
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    if (emailValue === '' || passwordValue === '') {
         return alert('Всі поля повинні бути заповнені!');
     }
 
-    const formData = new FormData(event.currentTarget);  
-    let newObjectData = Object.fromEntries(formData);
-    console.log(newObjectData);
+    const formData = {
+        email: emailValue,
+        password: passwordValue,
+    }
+    
+    console.log(formData);
     event.currentTarget.reset();
 }
 
